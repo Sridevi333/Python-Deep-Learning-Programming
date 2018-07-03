@@ -1,16 +1,26 @@
-import tensorflow as tf # imported the tensor flow package
-import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
-# creating a session and 3 matrices
-session = tf.Session()
-A = tf.constant([1,5,3,2],shape=[2,2])
-B = tf.constant([1,7,4,2],shape=[2,2])
-C = tf.constant([3,4,5,9],shape=[2,2])
-# function (a^2+b)*c and a, b, and c should be the matrices
-#Calculating the power of A
-D = tf.pow(A,2)
-#Adding the result from above with B
-E = tf.add(D,B)
-#Multiplying the above result with C
-F = tf.multiply(E,C)
-print(session.run(F))
+# import TensorFlow library
+import tensorflow as tf
+
+# constant matrix inputs a, b, c
+a = tf.constant([1, 2, 3, 4, 5, 6], shape=[3, 2])
+b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2])
+c = tf.constant([7, 8, 9, 10, 11, 12], shape=[2, 3])
+
+# calculating (a^2+b)*c
+d = tf.pow(a, 2, name='d')
+e = tf.add(d,b,name='e')
+f = tf.matmul(e,c,name='output')
+
+# printing the input matrices
+with tf.Session() as session:
+    print("Matrix a: ")
+    print(session.run(a))
+    print("Matrix b: ")
+    print(session.run(b))
+    print("Matrix c: ")
+    print(session.run(c))
+
+# printing the output
+with tf.Session() as session:
+    print("Output Matrix: ")
+    print(session.run(f))
