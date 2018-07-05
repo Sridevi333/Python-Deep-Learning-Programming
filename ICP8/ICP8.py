@@ -2,10 +2,10 @@
 import tensorflow as tf
 
 # constant matrix inputs a, b, c
-a = tf.constant([1, 2, 3, 4, 5, 6], shape=[3, 2])
-b = tf.constant([7, 8, 9, 10, 11, 12], shape=[3, 2])
-c = tf.constant([7, 8, 9, 10, 11, 12], shape=[2, 3])
-
+A = tf.constant([1,5,3,2],shape=[2,2])
+B = tf.constant([1,7,4,2],shape=[2,2])
+C = tf.constant([3,4,5,9],shape=[2,2])
+# function (a^2+b)*c and a, b, and c should be the matrices
 # calculating (a^2+b)*c
 d = tf.pow(a, 2, name='d')
 e = tf.add(d,b,name='e')
@@ -24,3 +24,6 @@ with tf.Session() as session:
 with tf.Session() as session:
     print("Output Matrix: ")
     print(session.run(f))
+
+
+
