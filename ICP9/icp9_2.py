@@ -59,6 +59,7 @@ X1,X2, Y = data.T[0], data.T[1],data.T[2]
 #plt.legend()
 #plt.show()
 
+# 3-D plotting
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 ax.scatter3D(X1, X2, Y, cmap='Greens')
